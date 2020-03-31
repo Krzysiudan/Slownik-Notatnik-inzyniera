@@ -1,0 +1,2 @@
+rootProject.name='Slownik Notatnik Inzyniera'
+include ':app'

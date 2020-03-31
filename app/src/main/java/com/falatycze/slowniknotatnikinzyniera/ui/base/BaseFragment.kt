@@ -1,0 +1,48 @@
+package com.falatycze.slowniknotatnikinzyniera.ui.base
+import android.content.Context
+import com.falatycze.slowniknotatnikinzyniera.database.BaseViewModel
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.falatycze.slowniknotatnikinzyniera.R
+
+class BaseFragment : Fragment() {
+
+    private lateinit var baseViewModel: BaseViewModel
+
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        baseViewModel =
+            ViewModelProvider(this).get(BaseViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_base, container, false)
+
+        val context = activity as Context
+         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
+        val adapter = QuestionsListAdapter(context)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        baseViewModel.allRecords.observe(viewLifecycleOwner, Observer { records ->
+            records?.let { adapter.setRecords(it) }
+        })
+
+        return root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+    }
+}
