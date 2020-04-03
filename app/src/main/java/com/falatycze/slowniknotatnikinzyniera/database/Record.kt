@@ -9,15 +9,18 @@ import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "records_table")
 data class Record(
-    @PrimaryKey(autoGenerate = true) val id: Int,
 
-    @NotNull @ColumnInfo(name = "Question") val question: String,
+
+    @NotNull  val question: String,
 
     @NotNull val answer: String,
 
     @NotNull val category: String
 
     ) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

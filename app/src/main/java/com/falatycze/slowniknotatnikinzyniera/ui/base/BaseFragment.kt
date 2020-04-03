@@ -9,13 +9,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class BaseFragment : Fragment() {
 
     private lateinit var baseViewModel: BaseViewModel
+    private val ADD_RECORD_REQUEST_CODE = 100
 
 
 
@@ -38,7 +41,16 @@ class BaseFragment : Fragment() {
             records?.let { adapter.setRecords(it) }
         })
 
+        val fab = root.findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener{
+            launchAddRecordFragment()
+        }
+
         return root
+    }
+
+    private fun launchAddRecordFragment(){
+        this.findNavController().navigate(R.id.fragment_add_record)
     }
 
     override fun onAttach(context: Context) {

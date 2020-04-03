@@ -12,7 +12,7 @@ import java.time.chrono.HijrahChronology
 import java.time.chrono.HijrahChronology.INSTANCE
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Record::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Record::class), version = 2, exportSchema = false)
 public abstract class RecordRoomDatabase : RoomDatabase() {
 
     abstract fun recordDao(): RecordDao
@@ -32,14 +32,8 @@ public abstract class RecordRoomDatabase : RoomDatabase() {
 
         suspend fun populateDatabase(recordDao: RecordDao) {
             // Delete all content here.
-            recordDao.deleteAll()
 
             // Add sample words.
-            var record = Record(10,"Jak żyć?","Normalnie","Życie")
-            recordDao.insert(record)
-            record = Record(10,"Jak żyć?","Nie żyć","Życie")
-            recordDao.insert(record)
-
 
 
             // TODO: Add your own words!
@@ -67,6 +61,7 @@ public abstract class RecordRoomDatabase : RoomDatabase() {
                     "word_database"
                 )
                     .addCallback(RecordDatabaseCallback(scope))
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance
