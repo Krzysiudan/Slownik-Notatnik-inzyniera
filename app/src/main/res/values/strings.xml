@@ -26,4 +26,5 @@
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="wprowad_odpowied">Wprowadź odpowiedź</string>
     <string name="wprowad_pytanie">Wprowadź pytanie</string>
+    <string name="tryb_nauki">Tryb nauki</string>
 </resources>

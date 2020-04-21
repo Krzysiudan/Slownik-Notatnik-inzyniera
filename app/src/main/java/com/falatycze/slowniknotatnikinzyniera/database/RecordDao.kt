@@ -22,4 +22,7 @@ interface RecordDao{
     @Query("DELETE FROM records_table")
     suspend fun deleteAll()
 
+    @Query("SELECT * from records_table ORDER BY RANDOM() LIMIT 1")
+    suspend fun getRandomRecord(): Record
+
 }

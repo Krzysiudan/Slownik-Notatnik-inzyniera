@@ -18,22 +18,17 @@
 
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.falatycze.slowniknotatnikinzyniera.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.falatycze.slowniknotatnikinzyniera.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/fragment_add_record"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.base.AddQuestionFragment"
-        android:label="AddQuestionFragment" >
+        android:label="AddQuestionFragment"
+        tools:layout="@layout/fragment_add_record">
         <action
             android:id="@+id/action_addQuestionFragment_to_nav_questions_base"
             app:destination="@id/nav_questions_base" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_all_questions"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.learningmode.LearningModeFragment"
+        android:label="LearningModeFragment"
+        tools:layout="@layout/fragment_learning"/>
 </navigation>

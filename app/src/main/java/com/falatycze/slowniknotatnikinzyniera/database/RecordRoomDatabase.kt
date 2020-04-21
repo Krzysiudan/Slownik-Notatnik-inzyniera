@@ -8,11 +8,12 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+
 import java.time.chrono.HijrahChronology
 import java.time.chrono.HijrahChronology.INSTANCE
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Record::class), version = 2, exportSchema = false)
+@Database(entities = arrayOf(Record::class), version = 3,exportSchema = false)
 public abstract class RecordRoomDatabase : RoomDatabase() {
 
     abstract fun recordDao(): RecordDao
@@ -62,6 +63,7 @@ public abstract class RecordRoomDatabase : RoomDatabase() {
                 )
                     .addCallback(RecordDatabaseCallback(scope))
                     .fallbackToDestructiveMigration()
+                    .createFromAsset("databases/word_database.db")
                     .build()
                 INSTANCE = instance
                 return instance

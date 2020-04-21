@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_all_questions"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/wszystkie_pytania" />
+            android:title="@string/tryb_nauki" />
         <item
             android:id="@+id/nav_categories"
             android:icon="@drawable/ic_menu_gallery"
