@@ -1,5 +1,6 @@
 package com.falatycze.slowniknotatnikinzyniera.ui.learningmode
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ class ViewPagerAdapter(): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHol
 
 
     private var questions = emptyList<Record>() // Cached copy of words
+    private val TAG = "LearningMode"
 
 
     inner class ViewPagerViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
@@ -26,10 +28,11 @@ class ViewPagerAdapter(): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHol
     }
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
-        val randomRecord = questions.random()
+        val randomRecord = questions[position]
         holder.itemView.textViewAnswer.text = randomRecord.answer
         holder.itemView.textViewQuestion.text = randomRecord.question
-
+        questions.indexOf(randomRecord)
+        Log.d(TAG,"ViewPager On Bind View Holder, random Record: $randomRecord ")
     }
 
     internal fun setRecords(questions: List<Record>) {

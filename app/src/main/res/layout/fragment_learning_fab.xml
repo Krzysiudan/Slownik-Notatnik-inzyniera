@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-
-<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/sliding_layout"
+<com.sothree.slidinguppanel.FloatingActionButtonLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
-    sothree:umanoAnchorPoint="0.5"
-    sothree:umanoPanelHeight="68dp"
-    sothree:umanoShadowHeight="4dp">
+    sothree:umanoFabMode= "leave_behind"
 
+   >
+
+    <!-- SLIDING UP PANEL -->
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+android:id="@+id/sliding_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="bottom"
+sothree:umanoDragView="@+id/dragView"
+    sothree:umanoScrollableView="@color/colorPrimaryLight"
+sothree:umanoPanelHeight="40dp"
+sothree:umanoShadowHeight="4dp"
+    sothree:umanoAnchorPoint="0.5">
 
 
     <LinearLayout
-        android:id="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -43,7 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:clickable="true"
         android:background="@color/colorAccent"
+
         >
 
 
@@ -60,27 +64,28 @@
             android:id="@+id/textViewAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:gravity="center|top"
             android:text="The Awesome Sliding Up Panel"
             android:textSize="16sp"
             android:background="@color/colorAccent" />
 
 
+
     </LinearLayout>
 
-    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/ic_done_black_24dp"
-        app:layout_anchor="@id/top_layout"
-        app:layout_anchorGravity="bottom|right|end"
-        android:backgroundTint="@color/colorPrimaryDark"
-        />
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+<com.melnykov.fab.FloatingActionButton
+android:id="@+id/fab"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="bottom|right"
+android:layout_marginRight="16dp"
+android:layout_marginBottom="16dp"
+android:src="@drawable/ic_done_black_24dp"
+    fab:fab_colorNormal="@color/colorPrimary"
+    fab:fab_colorPressed="@color/colorPrimaryLight"
+    fab:fab_colorRipple="@color/colorAccent"
+ />
+    </com.sothree.slidinguppanel.FloatingActionButtonLayout>

@@ -47,8 +47,6 @@ class LearningModeFragment : Fragment(), View.OnTouchListener{
         learningModeViewModel.allRecords.observe(viewLifecycleOwner, Observer { records ->
             records?.let { adapter.setRecords(it) }
         })
-
-
         return root
     }
 
