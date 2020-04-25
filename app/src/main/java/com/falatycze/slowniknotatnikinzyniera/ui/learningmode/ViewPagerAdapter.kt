@@ -39,4 +39,8 @@ class ViewPagerAdapter(): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHol
         this.questions = questions
         notifyDataSetChanged()
     }
+
+    fun getRecord(position: Int):Record{
+        return questions[position]
+    }
 }

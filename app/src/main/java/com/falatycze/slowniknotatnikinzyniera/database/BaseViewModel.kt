@@ -26,7 +26,7 @@ class BaseViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * The implementation of insert() in the database is completely hidden from the UI.
      * Room ensures that you're not doing any long running operations on
-     * the main thread, blocking the UI, so we don't need to handle changing Dispatchers.
+     * the learining_mode_menu thread, blocking the UI, so we don't need to handle changing Dispatchers.
      * ViewModels have a coroutine scope based on their lifecycle called
      * viewModelScope which we can use here.
      */
