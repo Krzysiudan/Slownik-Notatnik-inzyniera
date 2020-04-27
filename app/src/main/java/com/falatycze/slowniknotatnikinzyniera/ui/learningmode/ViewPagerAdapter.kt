@@ -38,6 +38,7 @@ class ViewPagerAdapter(): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHol
     internal fun setRecords(questions: List<Record>) {
         this.questions = questions
         notifyDataSetChanged()
+        Log.d(TAG,"ViewPagerAdapter: fun setRecords")
     }
 
     fun getRecord(position: Int):Record{
