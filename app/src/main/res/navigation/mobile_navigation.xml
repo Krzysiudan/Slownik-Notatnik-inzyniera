@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_questions_base">
+    app:startDestination="@+id/nav_learning_mode">
 
     <fragment
         android:id="@+id/nav_questions_base"
@@ -13,11 +13,11 @@
 
         <action
             android:id="@+id/action_nav_questions_base_to_addQuestionFragment"
-            app:destination="@id/fragment_add_record" />
+            app:destination="@id/nav_add_record" />
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_add_record"
+        android:id="@+id/nav_add_record"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.base.AddQuestionFragment"
         android:label="AddQuestionFragment"
         tools:layout="@layout/fragment_add_record">
@@ -30,4 +30,9 @@
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.learningmode.LearningModeFragment"
         android:label="LearningModeFragment"
         tools:layout="@layout/fragment_learning"/>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+
 </navigation>

@@ -50,7 +50,7 @@ class BaseFragment : Fragment() {
     }
 
     private fun launchAddRecordFragment(){
-        this.findNavController().navigate(R.id.fragment_add_record)
+        this.findNavController().navigate(R.id.nav_add_record)
     }
 
     override fun onAttach(context: Context) {
