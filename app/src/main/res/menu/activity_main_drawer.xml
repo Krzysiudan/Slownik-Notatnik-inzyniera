@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_learning_mode"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_learning_mode_black_24dp"
             android:title="@string/tryb_nauki" />
         <item
             android:id="@+id/nav_categories"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_categories_black_24dp"
             android:title="@string/kategorie" />
         <item
             android:id="@+id/nav_questions_base"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_list_black_24dp"
             android:title="@string/baza_pytan" />
         <item
             android:id="@+id/nav_add_question"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_add_black_24dp"
             android:title="@string/dodaj" />
         <item
             android:id="@+id/nav_search"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_search_black_24dp"
             android:title="@string/szukaj" />
     </group>
     <item android:title="@string/inne">

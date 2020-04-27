@@ -33,9 +33,9 @@
             android:gravity="center"
             android:layout_gravity="top"
             android:padding="40dp"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
             android:text="Main Content"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:background="@color/colorAccent"/>
     </LinearLayout>
 
@@ -63,7 +63,7 @@
             android:textAlignment="center"
             android:gravity="center|top"
             android:text="The Awesome Sliding Up Panel"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:background="@color/colorAccent" />
 
 
