@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.falatycze.slowniknotatnikinzyniera.R
 import com.falatycze.slowniknotatnikinzyniera.database.Record
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 
@@ -51,10 +52,18 @@ class LearningModeFragment : Fragment() {
             Log.d(DEBUG_TAG,"ShowKnownQuestions observer")
             if(showQuestions.peekContent()){
                 showAllQuestions()
-            } else showOnlyUnknownQuestions()
+                Snackbar.make(root,getString(R.string.snackbar_all_questions),Snackbar.LENGTH_SHORT).show()
+            } else {
+                showOnlyUnknownQuestions()
+                Snackbar.make(root,getString(R.string.snackbar_unknown_questions),Snackbar.LENGTH_SHORT).show()
+
+            }
         })
 
-        fab.setOnClickListener{questionLearned(adapter.getRecord(viewPager.currentItem))}
+        fab.setOnClickListener{
+            questionLearned(adapter.getRecord(viewPager.currentItem))
+            Snackbar.make(root,"Question marked as learned",Snackbar.LENGTH_SHORT).show()
+        }
 
         return root
     }
