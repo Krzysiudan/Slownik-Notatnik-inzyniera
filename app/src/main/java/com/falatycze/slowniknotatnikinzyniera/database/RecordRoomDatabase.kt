@@ -13,7 +13,7 @@ import java.time.chrono.HijrahChronology
 import java.time.chrono.HijrahChronology.INSTANCE
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Record::class), version = 3,exportSchema = false)
+@Database(entities = arrayOf(Record::class), version = 5,exportSchema = false)
 public abstract class RecordRoomDatabase : RoomDatabase() {
 
     abstract fun recordDao(): RecordDao

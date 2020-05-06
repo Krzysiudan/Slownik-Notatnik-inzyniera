@@ -21,9 +21,8 @@ private lateinit var learningModeViewModel: LearingModeViewModel
 private lateinit var adapter: ViewPagerAdapter
 private lateinit var fab: FloatingActionButton
 private lateinit var viewPager: ViewPager2
-private lateinit var observerUnknownQuestions: Observer<List<Record>>
 private lateinit var observerQuestions: Observer<List<Record>>
-private val ADD_RECORD_REQUEST_CODE = 100
+
 
 private val TAG = "LearningModeFragment"
 private val DEBUG_TAG = "LearningMode Debug"

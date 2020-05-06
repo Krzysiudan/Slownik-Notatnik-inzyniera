@@ -47,4 +47,6 @@
     <string name="settings">Settings</string>
     <string name="snackbar_all_questions">Now you see all questions</string>
     <string name="snackbar_unknown_questions">Now you see only not known questions</string>
+    <string name="question_short">Short ver of question</string>
+    <string name="category">category</string>
 </resources>

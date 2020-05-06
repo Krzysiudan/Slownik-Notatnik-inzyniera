@@ -8,18 +8,17 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.viewModelScope
 import com.falatycze.slowniknotatnikinzyniera.R
-import com.falatycze.slowniknotatnikinzyniera.database.BaseViewModel
 import com.falatycze.slowniknotatnikinzyniera.database.Record
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.*
 
-class AddQuestionFragment : Fragment(), OnItemSelectedListener {
+class AddQuestionFragment : Fragment() {
 
     private lateinit var baseViewModel: BaseViewModel
-
 
 
     override fun onCreateView(
@@ -31,44 +30,51 @@ class AddQuestionFragment : Fragment(), OnItemSelectedListener {
         baseViewModel =
             ViewModelProvider(this).get(BaseViewModel::class.java)
 
+
         val root = inflater.inflate(R.layout.fragment_add_record, container, false)
         val questionInput = root.findViewById<TextInputLayout>(R.id.textInputLayoutQuestion)
+
         val answerInput = root.findViewById<TextInputLayout>(R.id.textInputLayoutAnswer)
-        val spinnerCatergory = root.findViewById<Spinner>(R.id.spinner)
+
+        var categoryAdapter: ArrayAdapter<String>
+        val categoryInput =
+            root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextViewCategory)
         val buttonAdd = root.findViewById<Button>(R.id.button_add)
 
-        var listOfItems = arrayOf("Automatyka","Mechanika","Robotyka")
-        spinnerCatergory.onItemSelectedListener(this)
-        val arrayAdapter = ArrayAdapter<String>(activity as Context, android.R.layout.simple_spinner_item,listOfItems)
+        baseViewModel.categories.observe(viewLifecycleOwner, Observer { categories ->
+            categories.let {
+                categoryAdapter = ArrayAdapter<String>(
+                    activity as Context,
+                    android.R.layout.simple_dropdown_item_1line,
+                    it
+                )
+                categoryInput.setAdapter(categoryAdapter)
+            }
+        })
 
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        categoryInput.setOnFocusChangeListener{ view, b ->
+            if(view.hasFocus()){
+                categoryInput.showDropDown()
+                categoryInput.threshold = 1
+            }
+        }
 
-        spinnerCatergory.adapter = (arrayAdapter)
-
-        buttonAdd.setOnClickListener{
+        buttonAdd.setOnClickListener {
             val question = questionInput.editText?.text.toString()
             val answer = answerInput.editText?.text.toString()
-            val category = spinnerCatergory.selectedItem.toString()
-            val newRecord = Record(question,answer, category)
+            val category = categoryInput.text.toString()
+            val newRecord = Record(question, answer, category)
             baseViewModel.insert(newRecord)
 
-            Toast.makeText(activity as Context, "Pytanie dodane! Dodaj kolejne lub wróć.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                activity as Context,
+                "Pytanie dodane! Dodaj kolejne lub wróć.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
 
         return root
-    }
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
     }
 
 

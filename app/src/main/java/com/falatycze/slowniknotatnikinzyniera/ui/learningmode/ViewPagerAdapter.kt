@@ -30,7 +30,7 @@ class ViewPagerAdapter(): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHol
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         val randomRecord = questions[position]
         holder.itemView.textViewAnswer.text = randomRecord.answer
-        holder.itemView.textViewQuestion.text = randomRecord.question
+        holder.itemView.textViewItem.text = randomRecord.question
         questions.indexOf(randomRecord)
         Log.d(TAG,"ViewPager On Bind View Holder, random Record: $randomRecord ")
     }

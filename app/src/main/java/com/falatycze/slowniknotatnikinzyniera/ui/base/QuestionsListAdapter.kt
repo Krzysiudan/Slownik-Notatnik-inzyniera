@@ -11,23 +11,24 @@ import com.falatycze.slowniknotatnikinzyniera.database.Record
 
 class QuestionsListAdapter internal constructor(
     context: Context
-) : RecyclerView.Adapter<QuestionsListAdapter.WordViewHolder>() {
+) : RecyclerView.Adapter<QuestionsListAdapter.RecordViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var questions = emptyList<Record>() // Cached copy of words
 
-    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val wordItemView: TextView = itemView.findViewById(R.id.textViewQuestion)
+    inner class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val wordItemView: TextView = itemView.findViewById(R.id.textViewItem)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_item_all_questions, parent, false)
-        return WordViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
+        val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+        return RecordViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
         val current = questions[position]
-        holder.wordItemView.text = current.question
+        val text = "${current.id}. ${current.question}"
+        holder.wordItemView.text = text
     }
 
     internal fun setRecords(questions: List<Record>) {

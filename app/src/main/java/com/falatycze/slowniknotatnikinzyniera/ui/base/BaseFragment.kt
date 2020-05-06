@@ -1,6 +1,5 @@
 package com.falatycze.slowniknotatnikinzyniera.ui.base
 import android.content.Context
-import com.falatycze.slowniknotatnikinzyniera.database.BaseViewModel
 
 import android.os.Bundle
 import android.view.LayoutInflater

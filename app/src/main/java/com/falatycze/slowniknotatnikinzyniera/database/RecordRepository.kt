@@ -25,4 +25,8 @@ class RecordRepository (private val recordDao: RecordDao){
         suspend fun getRecords():LiveData<List<Record>>{
             return recordDao.getAlphabetizedRecords()
         }
+
+        suspend fun getCategories(): List<String>{
+            return  recordDao.getCategories()
+        }
 }

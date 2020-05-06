@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface RecordDao{
 
-    @Query("SELECT * from records_table ORDER BY question ASC")
+    @Query("SELECT * from records_table ORDER BY id ASC")
     fun getAlphabetizedRecords(): LiveData<List<Record>>
 
     @Query("SELECT question  from records_table ORDER BY question ASC")
@@ -17,6 +17,9 @@ interface RecordDao{
 
     @Query("SELECT * from records_table WHERE learned = 0")
     fun getNotLearnedRecords(): LiveData<List<Record>>
+
+    @Query("SELECT DISTINCT category from records_table")
+    fun getCategories(): List<String>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(record: Record)

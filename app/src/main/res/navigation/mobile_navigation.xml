@@ -34,5 +34,10 @@
         android:id="@+id/nav_settings"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.categories.CategoriesFragment"
+        android:label="CategoriesFragment"
+        tools:layout="@layout/fragment_categories"/>
 
 </navigation>
