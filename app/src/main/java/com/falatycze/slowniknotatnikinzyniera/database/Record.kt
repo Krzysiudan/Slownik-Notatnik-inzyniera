@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
 
-@Entity(tableName = "records_table")
+@Entity(tableName = "records")
 data class Record(
 
     @NotNull  val question: String,
@@ -18,7 +18,7 @@ data class Record(
 
 ) {
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
+    var id: Int = 0
 
     @NotNull
     var learned: Boolean = false

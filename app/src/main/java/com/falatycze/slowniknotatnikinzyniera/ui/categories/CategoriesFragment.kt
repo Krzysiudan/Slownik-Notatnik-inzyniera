@@ -2,6 +2,7 @@ package com.falatycze.slowniknotatnikinzyniera.ui.categories
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.falatycze.slowniknotatnikinzyniera.R
 class CategoriesFragment: Fragment(){
 
     private lateinit var categoriesViewModel: CategoriesViewModel
+    private val TAG = "CategoriesFragment"
 
 
     override fun onCreateView(
@@ -35,8 +37,14 @@ class CategoriesFragment: Fragment(){
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         categoriesViewModel.categories.observe(viewLifecycleOwner, Observer { categories ->
-            categories?.let { adapter.setCategories(it) }
+            categories?.let {
+                adapter.setCategories(it)
+                Log.d(TAG,"categories - observer $it")
+            }
+
         })
+
+        categoriesViewModel.loadCategories()
 
         return root
     }

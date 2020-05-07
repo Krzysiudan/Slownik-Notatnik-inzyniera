@@ -29,4 +29,8 @@ class RecordRepository (private val recordDao: RecordDao){
         suspend fun getCategories(): List<String>{
             return  recordDao.getCategories()
         }
+
+        suspend fun searchInRecords(tag: String):List<Record>{
+            return recordDao.searchByTags(tag)
+        }
 }

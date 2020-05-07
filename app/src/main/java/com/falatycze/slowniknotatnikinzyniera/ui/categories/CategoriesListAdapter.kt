@@ -29,7 +29,7 @@ class CategoriesListAdapter internal constructor(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val currentCategory = categories[position]
-        val text = "$position. $currentCategory"
+        val text = "${position+1}. $currentCategory"
         holder.categoryItemView.text = text
     }
 
