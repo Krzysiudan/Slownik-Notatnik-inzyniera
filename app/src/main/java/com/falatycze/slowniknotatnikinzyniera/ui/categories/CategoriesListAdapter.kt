@@ -4,9 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.falatycze.slowniknotatnikinzyniera.database.Record
 
 
 class CategoriesListAdapter internal constructor(
@@ -15,15 +17,26 @@ class CategoriesListAdapter internal constructor(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var categories = emptyList<String>()
+    private var categoriesRecord = emptyList<Record>()
+    var onItemClick: ((String) -> Unit)? = null
 
-    inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+    inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val categoryItemView: TextView = itemView.findViewById(R.id.textViewItem)
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(categories[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+
         return CategoryViewHolder(itemView)
     }
+
+
 
     override fun getItemCount(): Int = categories.size
 
