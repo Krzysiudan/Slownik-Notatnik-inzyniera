@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Record::class,RecordFts::class), version = 6,exportSchema = false)
+@Database(entities = [Record::class,RecordFts::class], version = 9,exportSchema = false)
 public abstract class RecordRoomDatabase : RoomDatabase() {
 
     abstract fun recordDao(): RecordDao
@@ -33,8 +33,6 @@ public abstract class RecordRoomDatabase : RoomDatabase() {
             // Delete all content here.
 
             // Add sample words.
-
-
             // TODO: Add your own words!
         }
     }

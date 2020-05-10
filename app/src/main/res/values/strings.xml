@@ -49,4 +49,7 @@
     <string name="snackbar_unknown_questions">Now you see only not known questions</string>
     <string name="question_short">Short ver of question</string>
     <string name="category">category</string>
+    <string name="search_icon">search icon</string>
+    <string name="search">Search</string>
+    <string name="number_of_ocurrences">Number of Ocurrences</string>
 </resources>

@@ -29,7 +29,7 @@
         android:id="@+id/nav_learning_mode"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.learningmode.LearningModeFragment"
         android:label="LearningModeFragment"
-        tools:layout="@layout/fragment_learning"/>
+        tools:layout="@layout/fragment_learning" />
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.settings.SettingsFragment"
@@ -38,6 +38,24 @@
         android:id="@+id/nav_categories"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.categories.CategoriesFragment"
         android:label="CategoriesFragment"
-        tools:layout="@layout/fragment_categories"/>
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_nav_search_to_searchResultFragment"
+            app:destination="@id/searchResultFragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SearchResultFragment"
+        android:label="SearchResultFragment">
+        <argument
+            android:name="search_tag"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
