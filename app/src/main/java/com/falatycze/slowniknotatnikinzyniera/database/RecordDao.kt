@@ -31,6 +31,6 @@ interface RecordDao{
     suspend fun updateAsLearned(recordId : Int)
 
     @Transaction
-    @Query("SELECT records.* FROM records JOIN recordsFts ON (records.id = recordsFts.docid) WHERE recordsFts MATCH :tag")
+    @Query("SELECT records.* FROM records JOIN recordsFts ON (records.id = recordsFts.docid) WHERE recordsFts MATCH:tag")
     suspend fun searchByTags(tag :String): List<Record>
 }

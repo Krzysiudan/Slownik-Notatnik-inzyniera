@@ -16,6 +16,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class SearchFragment : Fragment() {
@@ -32,12 +33,11 @@ class SearchFragment : Fragment() {
 
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_search, container, false)
-        val context = activity as Context
-        val searchTextView = root.findViewById<TextInputLayout>(R.id.textInputLayoutSearch)
+        val searchEditText = root.findViewById<TextInputEditText>(R.id.textInputEditTextSearch)
         val searchButton  = root.findViewById<ImageButton>(R.id.imageButtonSearch)
 
         searchButton.setOnClickListener{
-            val searchTag = searchTextView.editText.toString()
+            val searchTag = searchEditText.text.toString()
             val action = SearchFragmentDirections.actionNavSearchToSearchResultFragment(searchTag)
             it.findNavController().navigate(action)
         }
