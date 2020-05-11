@@ -17,7 +17,7 @@ import com.falatycze.slowniknotatnikinzyniera.R
 
 class SearchResultFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var searchViewModel: SingleRecordViewModel
     private val TAG = "SearchFragment"
     val args: SearchResultFragmentArgs by navArgs()
 
@@ -28,7 +28,7 @@ class SearchResultFragment : Fragment() {
 
     ): View? {
 
-        searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
+        searchViewModel = ViewModelProvider(this).get(SingleRecordViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_search_result, container, false)
         val context = activity as Context
 

@@ -33,4 +33,8 @@ class RecordRepository (private val recordDao: RecordDao){
         suspend fun searchInRecords(tag: String):List<Record>{
             return recordDao.searchByTags(tag)
         }
+
+        suspend fun getSingleRecord(singleRecordId: Int): Record{
+            return recordDao.getSingleRecord(singleRecordId)
+        }
 }

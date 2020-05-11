@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_nav_questions_base_to_addQuestionFragment"
             app:destination="@id/nav_add_record" />
+        <action
+            android:id="@+id/action_nav_questions_base_to_singleRecordFragment"
+            app:destination="@id/singleRecordFragment" />
     </fragment>
 
     <fragment
@@ -56,6 +59,19 @@
         <argument
             android:name="search_tag"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_singleRecordFragment"
+            app:destination="@id/singleRecordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/singleRecordFragment"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SingleRecordFragment"
+        android:label="SingleRecordFragment"
+        tools:layout="@layout/fragment_single_record">
+        <argument
+            android:name="id_record"
+            app:argType="integer"/>
     </fragment>
 
 </navigation>
