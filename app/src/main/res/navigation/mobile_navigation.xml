@@ -72,6 +72,17 @@
         <argument
             android:name="id_record"
             app:argType="integer"/>
+        <action
+            android:id="@+id/action_singleRecordFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.singleRecord.EditFragment"
+        android:label="EditFragment"
+        tools:layout="@layout/fragment_add_record">
+
     </fragment>
 
 </navigation>

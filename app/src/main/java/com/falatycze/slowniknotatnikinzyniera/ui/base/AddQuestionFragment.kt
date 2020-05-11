@@ -10,11 +10,9 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.falatycze.slowniknotatnikinzyniera.R
 import com.falatycze.slowniknotatnikinzyniera.database.Record
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.*
 
 class AddQuestionFragment : Fragment() {
 

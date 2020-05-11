@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/wprowad_pytanie"
@@ -35,6 +36,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/wprowad_odpowied"

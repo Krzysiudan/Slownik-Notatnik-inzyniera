@@ -2,6 +2,7 @@ package com.falatycze.slowniknotatnikinzyniera.database
 
 
 import androidx.lifecycle.LiveData
+import kotlin.math.sin
 
 class RecordRepository (private val recordDao: RecordDao){
 
@@ -36,5 +37,9 @@ class RecordRepository (private val recordDao: RecordDao){
 
         suspend fun getSingleRecord(singleRecordId: Int): Record{
             return recordDao.getSingleRecord(singleRecordId)
+        }
+
+        suspend fun updateSingleRecord(singleRecord: Record) {
+            return recordDao.updateSingleRecord(singleRecord)
         }
 }

@@ -29,4 +29,12 @@ class SingleRecordViewModel(application: Application) : AndroidViewModel(applica
         }
         Log.d(TAG,"method: loadResults, searchTag: $singleRecordId, _results:  ${_singleRecord.toString()}")
     }
+
+    fun updateSingleRecord(updatedRecord: Record){
+        viewModelScope.launch {
+            repository.updateSingleRecord(updatedRecord)
+            _singleRecord.value = updatedRecord
+        }
+        Log.d(TAG,"method: updateSingleRecord, updatedRecord: ${updatedRecord.toString()}, _results:  ${_singleRecord.toString()}")
+    }
 }

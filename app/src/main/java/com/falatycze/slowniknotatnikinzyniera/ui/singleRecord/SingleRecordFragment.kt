@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 
 class SingleRecordFragment : Fragment() {
@@ -28,20 +31,24 @@ class SingleRecordFragment : Fragment() {
 
     ): View? {
 
-        singleRecordViewModel = ViewModelProvider(this).get(SingleRecordViewModel::class.java)
+        singleRecordViewModel = ViewModelProvider(activity as FragmentActivity).get(SingleRecordViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_single_record, container, false)
 
         val textViewQuestion = root.findViewById<TextView>(R.id.textViewQuestion)
         val textViewAnswer = root.findViewById<TextView>(R.id.textViewAnswer)
-        val singleRecordId = args.idRecord
+        val fab = root.findViewById<FloatingActionButton>(R.id.fab)
 
+        fab.setOnClickListener{
+            val action = SingleRecordFragmentDirections.actionSingleRecordFragmentToEditFragment()
+            findNavController().navigate(action)
+        }
+
+        val singleRecordId = args.idRecord
         singleRecordViewModel.singleRecord.observe(viewLifecycleOwner, Observer { record ->
             textViewQuestion.text = record.question
             textViewAnswer.text = record.answer
         })
-
         singleRecordViewModel.loadSingleRecord(singleRecordId)
-
 
 
         return root
