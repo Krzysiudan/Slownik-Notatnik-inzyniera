@@ -9,10 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.falatycze.slowniknotatnikinzyniera.ui.search.SearchFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class BaseFragment : Fragment() {
@@ -39,6 +41,9 @@ class BaseFragment : Fragment() {
 
         adapter.onItemClick = {record ->
             Toast.makeText(activity as Context,"On item clicked ${record.question}", Toast.LENGTH_SHORT).show()
+            val recordId = record.id
+            val action = BaseFragmentDirections.actionNavQuestionsBaseToSingleRecordFragment(recordId)
+            findNavController().navigate(action)
         }
 
         baseViewModel.allRecords.observe(viewLifecycleOwner, Observer { records ->

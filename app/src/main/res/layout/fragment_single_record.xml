@@ -31,7 +31,6 @@
                 android:layout_gravity="top"
                 android:padding="40dp"
                 android:layout_margin="20dp"
-                android:text="Main Content"
                 android:textSize="18sp"
                 android:textColor="@color/primaryText"
                 android:background="@color/colorPrimaryDark"/>
@@ -60,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:gravity="center|top"
-                android:text="The Awesome Sliding Up Panel"
                 android:textColor="@color/primaryText"
                 android:textSize="18sp"
                 android:background="@color/colorPrimaryDark" />

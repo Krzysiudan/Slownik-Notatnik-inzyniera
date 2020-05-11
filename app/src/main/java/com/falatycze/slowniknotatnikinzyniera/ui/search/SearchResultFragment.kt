@@ -11,10 +11,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
+import com.falatycze.slowniknotatnikinzyniera.ui.base.BaseFragmentDirections
 
 class SearchResultFragment : Fragment() {
 
@@ -39,6 +41,12 @@ class SearchResultFragment : Fragment() {
         val adapter = SearchResultListAdapter(context)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        adapter.onItemClick = {record ->
+            val recordId = record.id
+            val action = SearchResultFragmentDirections.actionSearchResultFragmentToSingleRecordFragment(recordId)
+            findNavController().navigate(action)
+        }
 
         searchViewModel.results.observe(viewLifecycleOwner, Observer { records->
             adapter.setResaults(records)
