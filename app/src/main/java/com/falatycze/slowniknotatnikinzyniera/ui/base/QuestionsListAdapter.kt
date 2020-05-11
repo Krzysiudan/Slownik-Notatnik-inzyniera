@@ -14,10 +14,16 @@ class QuestionsListAdapter internal constructor(
 ) : RecyclerView.Adapter<QuestionsListAdapter.RecordViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var questions = emptyList<Record>() // Cached copy of words
+    private var questions = emptyList<Record>()
+    var onItemClick: ((Record) -> Unit)? = null
 
     inner class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val wordItemView: TextView = itemView.findViewById(R.id.textViewItem)
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(questions[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {

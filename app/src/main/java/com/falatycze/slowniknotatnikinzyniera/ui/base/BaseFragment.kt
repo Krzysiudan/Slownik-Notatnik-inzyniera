@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +36,10 @@ class BaseFragment : Fragment() {
         val adapter = QuestionsListAdapter(context)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
+        adapter.onItemClick = {record ->
+            Toast.makeText(activity as Context,"On item clicked ${record.question}", Toast.LENGTH_SHORT).show()
+        }
 
         baseViewModel.allRecords.observe(viewLifecycleOwner, Observer { records ->
             records?.let { adapter.setRecords(it) }

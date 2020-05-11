@@ -4,11 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
-import com.falatycze.slowniknotatnikinzyniera.database.Record
 
 
 class CategoriesListAdapter internal constructor(
@@ -17,7 +15,6 @@ class CategoriesListAdapter internal constructor(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var categories = emptyList<String>()
-    private var categoriesRecord = emptyList<Record>()
     var onItemClick: ((String) -> Unit)? = null
 
 
