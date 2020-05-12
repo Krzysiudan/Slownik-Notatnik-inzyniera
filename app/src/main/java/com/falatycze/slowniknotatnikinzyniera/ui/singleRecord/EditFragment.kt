@@ -17,10 +17,16 @@ import com.falatycze.slowniknotatnikinzyniera.R
 import com.falatycze.slowniknotatnikinzyniera.database.Record
 import com.falatycze.slowniknotatnikinzyniera.ui.base.AddQuestionFragment
 import com.falatycze.slowniknotatnikinzyniera.ui.search.SingleRecordViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class EditFragment : Fragment() {
 
     private lateinit var singleRecordViewModel: SingleRecordViewModel
+    private lateinit var questionInput:EditText
+    private lateinit var answerInput:EditText
+    private lateinit var categoryInput:AutoCompleteTextView
+
+
     private val TAG = "EditFragment"
 
 
@@ -35,19 +41,14 @@ class EditFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_add_record, container, false)
 
-        val questionInput = root.findViewById<EditText>(R.id.editTextAnswer)
-        val answerInput = root.findViewById<EditText>(R.id.editTextQuestion)
+        questionInput = root.findViewById<EditText>(R.id.editTextAnswer)
+        answerInput = root.findViewById<EditText>(R.id.editTextQuestion)
 
         var categoryAdapter: ArrayAdapter<String>
-        val categoryInput =
-            root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextViewCategory)
+        categoryInput = root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextViewCategory)
         val buttonAdd = root.findViewById<Button>(R.id.button_add)
-        val record = singleRecordViewModel.singleRecord.value
-        Log.d(TAG,"Record: ${record.toString()}")
-        questionInput.setText(record?.question)
-        answerInput.setText(record?.answer)
-        categoryInput.setText(record?.category)
-
+        val currentRecord = singleRecordViewModel.singleRecord.value!!
+        populateViewsWithCurrentRecord(currentRecord)
 
         categoryInput.setOnFocusChangeListener { view, b ->
             if (view.hasFocus()) {
@@ -57,24 +58,31 @@ class EditFragment : Fragment() {
         }
 
         buttonAdd.setOnClickListener {
-            val question = questionInput.text.toString()
-            val answer = answerInput.text.toString()
-            val category = categoryInput.text.toString()
-            val newRecord = Record(question, answer, category)
-            singleRecordViewModel.updateSingleRecord(newRecord)
-            Toast.makeText(
-                activity as Context, "Pytanie edytowane!", Toast.LENGTH_SHORT
-            ).show()
-            findNavController().popBackStack()
+            var editedRecord = singleRecordViewModel.singleRecord.value
+            editedRecord?.question = questionInput.text.toString()
+           editedRecord?.answer = answerInput.text.toString()
+            editedRecord?.category = categoryInput.text.toString()
+            if (editedRecord != null) {
+                singleRecordViewModel.updateSingleRecord(editedRecord)
+                Snackbar.make(root,"Record edited!",Snackbar.LENGTH_SHORT).show()
+                findNavController().popBackStack()
+            }
         }
 
         return root
     }
 
+    fun populateViewsWithCurrentRecord(record: Record){
+        Log.d(TAG,"Record: ${record.toString()}")
+        questionInput.setText(record?.question)
+        answerInput.setText(record?.answer)
+        categoryInput.setText(record?.category)
+    }
+
+
+
 
 }
 
-private operator fun OnItemSelectedListener?.invoke(addQuestionFragment: AddQuestionFragment) {
 
-}
 

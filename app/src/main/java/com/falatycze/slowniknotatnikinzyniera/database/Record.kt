@@ -10,11 +10,11 @@ import org.jetbrains.annotations.NotNull
 @Entity(tableName = "records")
 data class Record(
 
-    @NotNull  val question: String,
+    @NotNull var question: String,
 
-    @NotNull val answer: String,
+    @NotNull var answer: String,
 
-    @NotNull val category: String
+    @NotNull var category: String
 
 ) {
     @PrimaryKey(autoGenerate = true)
