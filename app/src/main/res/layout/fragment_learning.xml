@@ -9,14 +9,15 @@
 
 
 
-<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
     android:id="@+id/sliding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:umanoScrollableView="@id/scroll_view"
     android:gravity="bottom"
-    sothree:umanoAnchorPoint="0.5"
-    sothree:umanoPanelHeight="68dp"
-    sothree:umanoShadowHeight="4dp">
+    app:umanoAnchorPoint="0.5"
+    app:umanoPanelHeight="68dp"
+    app:umanoShadowHeight="4dp">
 
     <LinearLayout
         android:id="@+id/top_layout"
@@ -56,16 +57,24 @@
             android:layout_marginBottom="30dp"
             />
 
-        <TextView
-            android:id="@+id/textViewAnswer"
+        <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:gravity="center|top"
-            android:text="The Awesome Sliding Up Panel"
-            android:textColor="@color/primaryText"
-            android:textSize="18sp"
-            android:background="@color/colorPrimaryDark" />
+            android:scrollbars="vertical"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/textViewAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center|top"
+                android:text="The Awesome Sliding Up Panel"
+                android:textAlignment="center"
+                android:textColor="@color/primaryText"
+                android:textSize="18sp" />
+        </ScrollView>
 
 
     </LinearLayout>
