@@ -11,16 +11,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.falatycze.slowniknotatnikinzyniera.R
 import kotlinx.android.synthetic.main.fragment_base.*
 
-class CategoriesFragment: Fragment(){
+class SingleCategoryFragment: Fragment(){
 
     private lateinit var categoriesViewModel: CategoriesViewModel
     private lateinit var recyclerView: RecyclerView
     private val TAG = "CategoriesFragment"
+    private val args: SingleCategoryFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -40,23 +42,24 @@ class CategoriesFragment: Fragment(){
     }
 
      fun setupRecyclerAdapter(){
-         recyclerView.layoutManager = LinearLayoutManager(context)
-         val adapter = CategoriesListAdapter(activity as Context)
+         recyclerView.layoutManager = LinearLayoutManager(activity as Context)
+         val adapter = SingleCategoryListAdapter(activity as Context)
          recyclerView.adapter = adapter
 
-         adapter.onItemClick = {category ->
-                val action = CategoriesFragmentDirections.actionNavCategoriesToSingleCategoryFragment(category)
-                findNavController().navigate(action)
+         val currentCategory = args.category
+
+         adapter.onItemClick = {question ->
+                val action = SingleCategoryFragmentDirections.actionSingleCategoryFragmentToSingleRecordFragment(question.id)
+             findNavController().navigate(action)
          }
 
-         categoriesViewModel.categories.observe(viewLifecycleOwner, Observer { categories ->
-             categories?.let {
-                 adapter.setCategories(it)
+         categoriesViewModel.questionsFromSingleCategory.observe(viewLifecycleOwner, Observer { questions ->
+             questions?.let {
+                 adapter.setQuestions(it)
                  Log.d(TAG,"categories - observer $it")
              }
-
          })
-         categoriesViewModel.loadCategories()
+         categoriesViewModel.loadQuestionsFromSingleCategory(currentCategory)
 
 
 

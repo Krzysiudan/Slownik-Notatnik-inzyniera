@@ -2,6 +2,7 @@ package com.falatycze.slowniknotatnikinzyniera.database
 
 
 import androidx.lifecycle.LiveData
+import com.falatycze.slowniknotatnikinzyniera.database.pojo.QuestionWithId
 import kotlin.math.sin
 
 class RecordRepository (private val recordDao: RecordDao){
@@ -42,4 +43,14 @@ class RecordRepository (private val recordDao: RecordDao){
         suspend fun updateSingleRecord(singleRecord: Record) {
             return recordDao.updateSingleRecord(singleRecord)
         }
+
+        suspend fun getQuestionsFromCategory(category: String):List<QuestionWithId>{
+            return recordDao.getQuestionsFromCategory(category)
+        }
+
+        suspend fun getIdWhereQuestion(question: String):Int{
+            return recordDao.getIdWhereQuestion(question)
+        }
+
+
 }

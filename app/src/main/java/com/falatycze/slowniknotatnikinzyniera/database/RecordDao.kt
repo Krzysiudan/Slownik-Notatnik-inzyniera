@@ -2,6 +2,7 @@ package com.falatycze.slowniknotatnikinzyniera.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.falatycze.slowniknotatnikinzyniera.database.pojo.QuestionWithId
 
 @Dao
 interface RecordDao{
@@ -39,4 +40,10 @@ interface RecordDao{
 
     @Update
     suspend fun updateSingleRecord(updatedRecord: Record)
+
+    @Query("SELECT id,question FROM records WHERE category = :category")
+    suspend fun getQuestionsFromCategory(category: String): List<QuestionWithId>
+
+    @Query("Select id FROM records WHERE question =:question")
+    suspend fun getIdWhereQuestion(question: String): Int
 }
