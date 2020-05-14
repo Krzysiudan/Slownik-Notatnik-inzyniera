@@ -13,10 +13,18 @@
 
         <action
             android:id="@+id/action_nav_questions_base_to_addQuestionFragment"
-            app:destination="@id/nav_add_record" />
+            app:destination="@id/nav_add_record"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_nav_questions_base_to_singleRecordFragment"
-            app:destination="@id/singleRecordFragment" />
+            app:destination="@id/singleRecordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -26,7 +34,11 @@
         tools:layout="@layout/fragment_add_record">
         <action
             android:id="@+id/action_addQuestionFragment_to_nav_questions_base"
-            app:destination="@id/nav_questions_base" />
+            app:destination="@id/nav_questions_base"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/nav_learning_mode"
@@ -44,7 +56,11 @@
         tools:layout="@layout/fragment_categories" >
         <action
             android:id="@+id/action_nav_categories_to_singleCategoryFragment"
-            app:destination="@id/singleCategoryFragment" />
+            app:destination="@id/singleCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_search"
@@ -53,7 +69,11 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_nav_search_to_searchResultFragment"
-            app:destination="@id/searchResultFragment">
+            app:destination="@id/searchResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
         </action>
     </fragment>
     <fragment
@@ -65,7 +85,11 @@
             app:argType="string" />
         <action
             android:id="@+id/action_searchResultFragment_to_singleRecordFragment"
-            app:destination="@id/singleRecordFragment" />
+            app:destination="@id/singleRecordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -78,7 +102,11 @@
             app:argType="integer"/>
         <action
             android:id="@+id/action_singleRecordFragment_to_editFragment"
-            app:destination="@id/editFragment" />
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -97,7 +125,11 @@
         app:argType="string"/>
         <action
             android:id="@+id/action_singleCategoryFragment_to_singleRecordFragment"
-            app:destination="@id/singleRecordFragment" />
+            app:destination="@id/singleRecordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 </navigation>
