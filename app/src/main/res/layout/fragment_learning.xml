@@ -34,8 +34,7 @@
             android:layout_gravity="top"
             android:padding="40dp"
             android:layout_margin="20dp"
-            android:text="Main Content"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="@color/primaryText"
             android:background="@color/colorPrimaryDark"/>
     </LinearLayout>
@@ -70,10 +69,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center|top"
-                android:text="The Awesome Sliding Up Panel"
                 android:textAlignment="center"
                 android:textColor="@color/primaryText"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
         </ScrollView>
 
 

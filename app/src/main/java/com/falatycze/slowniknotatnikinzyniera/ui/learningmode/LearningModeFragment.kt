@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.falatycze.slowniknotatnikinzyniera.R
 import com.falatycze.slowniknotatnikinzyniera.database.Record
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
+
 
 
 private lateinit var learningModeViewModel: LearingModeViewModel
@@ -44,7 +47,11 @@ class LearningModeFragment : Fragment() {
 
         adapter = ViewPagerAdapter()
         viewPager.adapter = adapter
+
+        registerViewPagerChangeListener()
+
         observerQuestions = Observer{ records -> records?.let{ adapter.setRecords(it)}}
+
 
 
         learningModeViewModel.showKnownQuestions.observe(viewLifecycleOwner, Observer { showQuestions ->
@@ -91,6 +98,21 @@ class LearningModeFragment : Fragment() {
 
     private fun questionLearned(currentItem: Record) {
         learningModeViewModel.viewModelScope.launch {learningModeViewModel.updateQuestionAsKnown(currentItem.id)}
+    }
+
+    private fun registerViewPagerChangeListener(){
+        viewPager.registerOnPageChangeCallback(object :
+        ViewPager2.OnPageChangeCallback() {
+
+            override fun onPageScrollStateChanged(state: Int) {
+                when(state){
+                    ViewPager2.SCROLL_STATE_IDLE -> fab.show()
+                    ViewPager2.SCROLL_STATE_DRAGGING -> fab.hide()
+                    ViewPager2.SCROLL_STATE_SETTLING -> fab.hide()
+                }
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
