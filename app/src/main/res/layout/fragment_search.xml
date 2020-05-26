@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@drawable/rounded_shape_accent_color"
             android:contentDescription="@string/search_icon"
             app:srcCompat="@drawable/ic_search_black_24dp" />
 
