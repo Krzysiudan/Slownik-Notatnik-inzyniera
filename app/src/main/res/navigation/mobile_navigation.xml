@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_questions_base"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.base.BaseFragment"
-        android:label="@string/menu_home"
+        android:label="@string/fragment_base_label"
         tools:layout="@layout/fragment_base">
 
         <action
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/nav_add_record"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.base.AddQuestionFragment"
-        android:label="AddQuestionFragment"
+        android:label="@string/fragment_add_record_label"
         tools:layout="@layout/fragment_add_record">
         <action
             android:id="@+id/action_addQuestionFragment_to_nav_questions_base"
@@ -43,16 +43,16 @@
     <fragment
         android:id="@+id/nav_learning_mode"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.learningmode.LearningModeFragment"
-        android:label="LearningModeFragment"
+        android:label="@string/fragment_learning_mode_label"
         tools:layout="@layout/fragment_learning" />
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="@string/settings_fragment_label" />
     <fragment
         android:id="@+id/nav_categories"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.categories.CategoriesFragment"
-        android:label="CategoriesFragment"
+        android:label="@string/fragment_categories_label"
         tools:layout="@layout/fragment_categories" >
         <action
             android:id="@+id/action_nav_categories_to_singleCategoryFragment"
@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/nav_search"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SearchFragment"
-        android:label="SearchFragment"
+        android:label="@string/fragment_search_label"
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_nav_search_to_searchResultFragment"
@@ -79,7 +79,7 @@
     <fragment
         android:id="@+id/searchResultFragment"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SearchResultFragment"
-        android:label="SearchResultFragment">
+        android:label="@string/fragmen_search_results_label">
         <argument
             android:name="search_tag"
             app:argType="string" />
@@ -95,7 +95,7 @@
     <fragment
         android:id="@+id/singleRecordFragment"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.search.SingleRecordFragment"
-        android:label="SingleRecordFragment"
+        android:label="@string/fragment_single_record_label"
         tools:layout="@layout/fragment_single_record">
         <argument
             android:name="id_record"
@@ -112,14 +112,14 @@
     <fragment
         android:id="@+id/editFragment"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.singleRecord.EditFragment"
-        android:label="EditFragment"
+        android:label="@string/fragment_edit_label"
         tools:layout="@layout/fragment_add_record">
 
     </fragment>
     <fragment
         android:id="@+id/singleCategoryFragment"
         android:name="com.falatycze.slowniknotatnikinzyniera.ui.categories.SingleCategoryFragment"
-        android:label="SingleCategoryFragment">
+        android:label="@string/fragment_single_category_label">
     <argument
         android:name="category"
         app:argType="string"/>

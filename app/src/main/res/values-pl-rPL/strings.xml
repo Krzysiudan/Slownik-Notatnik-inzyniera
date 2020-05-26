@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Slownik Notatnik Inzyniera</string>
+    <string name="nav_header_title">Słownik Notatnik inżyniera</string>
+    <string name="nav_header_subtitle">Pytania i odpowiedzi po krótce</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="szukaj">Szukaj</string>
+    <string name="ustawienia">Ustawienia</string>
+    <string name="info">Informacje</string>
+    <string name="hint_word">Słowo</string>
+    <string name="button_save">Zapisz</string>
+    <string name="title_activity_settings">Ustawienia</string>
+    <string name="messages_header">Wiadomości</string>
+    <string name="sync_header">Synchronizacja</string>
+    <string name="signature_title">Twój podpis</string>
+    <string name="reply_title">Domyślna odpowiedź</string>
+    <string name="sync_title">Synchronizuj email okresowo</string>
+    <string name="attachment_title">Pobierz załączniki</string>
+    <string name="attachment_summary_on">Automatycznie pobieraj załączniki</string>
+    <string name="settings">Ustawienia</string>
+    <string name="snackbar_all_questions">Widzisz wszystkie pytania</string>
+    <string name="snackbar_unknown_questions">Widzisz tylko nieznane Ci pytania</string>
+    <string name="category">kategoria</string>
+    <string name="search_icon">ikona wyszukaj</string>
+    <string name="search">Szukaj</string>
+    <string name="number_of_ocurrences">Ilośc wystąpień:</string>
+    <string name="fragment_base_label">Wszystkie pytania</string>
+    <string name="fragment_add_record_label">Dodaj</string>
+    <string name="fragment_learning_mode_label">Tryb nauki</string>
+    <string name="settings_fragment_label">Ustawienia</string>
+    <string name="fragment_categories_label">Kategorie</string>
+    <string name="fragment_search_label">Szukaj</string>
+    <string name="fragmen_search_results_label">Rezultat</string>
+    <string name="fragment_single_record_label">Pojedyńczy rekord</string>
+    <string name="fragment_edit_label">Edytuj</string>
+    <string name="fragment_single_category_label">Pojedyńcza kategoria</string>
+    <string name="all_questions">Wszystkie pytania</string>
+    <string name="categories">Kategorie</string>
+    <string name="questions_base">Baza pytań</string>
+    <string name="add">Dodaj</string>
+    <string name="other">Inne</string>
+    <string name="share">Udostępnij</string>
+    <string name="insert_answer">Wprowadź odpowiedź</string>
+    <string name="insert_question">Wprowadź pytanie</string>
+    <string name="known_questions">Znane pytania</string>
+    <string name="tryb_nauki">Tryb nauki</string>
+</resources>

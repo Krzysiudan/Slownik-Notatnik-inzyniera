@@ -11,26 +11,26 @@
         <item
             android:id="@+id/nav_categories"
             android:icon="@drawable/ic_categories_black_24dp"
-            android:title="@string/kategorie" />
+            android:title="@string/categories" />
         <item
             android:id="@+id/nav_questions_base"
             android:icon="@drawable/ic_list_black_24dp"
-            android:title="@string/baza_pytan" />
+            android:title="@string/questions_base" />
         <item
             android:id="@+id/nav_add_record"
             android:icon="@drawable/ic_add_black_24dp"
-            android:title="@string/dodaj" />
+            android:title="@string/add" />
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_search_black_24dp"
             android:title="@string/szukaj" />
     </group>
-    <item android:title="@string/inne">
+    <item android:title="@string/other">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share_black_24dp"
-                android:title="@string/udost_pnij" />
+                android:title="@string/share" />
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_settings_black_24dp"

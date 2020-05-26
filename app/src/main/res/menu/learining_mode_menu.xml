@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/show_learned_questions"
-        android:title="@string/znane_pytania"
+        android:title="@string/known_questions"
         app:actionLayout="@layout/switch_item"
         app:showAsAction="ifRoom" />
 

@@ -20,7 +20,7 @@
             android:id="@+id/editTextQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/wprowad_pytanie"
+            android:hint="@string/insert_question"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -39,7 +39,7 @@
             android:id="@+id/editTextAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/wprowad_odpowied"
+            android:hint="@string/insert_answer"
             android:inputType="textMultiLine"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +73,7 @@
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dodaj"
+        android:text="@string/add"
         android:padding="16dp"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

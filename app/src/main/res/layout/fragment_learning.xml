@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/rounded_corner_textview"
+        android:background="@drawable/rounded_corner_primary_color"
         >
 
 
@@ -67,9 +67,10 @@
                 android:id="@+id/textViewAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/rounded_corner_textview"
                 android:textAlignment="textStart"
                 android:padding="20dp"
+                android:layout_margin="10dp"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </ScrollView>

@@ -27,7 +27,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_search_reasult"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/lightBackground"
+            />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
