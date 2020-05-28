@@ -68,7 +68,7 @@ class LearningModeFragment : Fragment() {
 
         fab.setOnClickListener{
             questionLearned(adapter.getRecord(viewPager.currentItem))
-            Snackbar.make(root,"Question marked as learned",Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(root,getString(R.string.question_marked),Snackbar.LENGTH_SHORT).show()
         }
 
         return root
@@ -84,8 +84,6 @@ class LearningModeFragment : Fragment() {
         Log.d(DEBUG_TAG,"All questions showing")
     }
 
-    fun initializeAllQuestionsObserver(){
-    }
 
     fun showOnlyUnknownQuestions(){
         if(learningModeViewModel.allRecords.hasObservers()){

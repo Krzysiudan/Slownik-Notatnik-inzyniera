@@ -46,4 +46,7 @@ interface RecordDao{
 
     @Query("Select id FROM records WHERE question =:question")
     suspend fun getIdWhereQuestion(question: String): Int
+
+    @Query("UPDATE records SET learned = 0")
+    suspend fun resetLearningProgress()
 }

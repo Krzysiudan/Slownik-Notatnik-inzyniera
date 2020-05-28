@@ -52,5 +52,9 @@ class RecordRepository (private val recordDao: RecordDao){
             return recordDao.getIdWhereQuestion(question)
         }
 
+        suspend fun resetLearningProgress(){
+            return recordDao.resetLearningProgress()
+        }
+
 
 }

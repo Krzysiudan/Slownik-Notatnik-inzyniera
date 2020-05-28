@@ -55,4 +55,12 @@
     <string name="insert_answer">Insert answer</string>
     <string name="insert_question">Insert question</string>
     <string name="known_questions">Known questions</string>
+    <string name="edit">Edit</string>
+    <string name="question_marked">Question marked as learned</string>
+    <string name="data">Data</string>
+    <string name="reset_questions">Reset progress</string>
+    <string name="no">No</string>
+    <string name="reset">Reset</string>
+    <string name="confirm_reseting_learned_questions">Do you want reset all you questions marked as learned</string>
+    <string name="reset_progress">Reset all learning progress</string>
 </resources>

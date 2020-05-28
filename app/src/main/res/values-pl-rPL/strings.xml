@@ -44,4 +44,12 @@
     <string name="insert_question">Wprowadź pytanie</string>
     <string name="known_questions">Znane pytania</string>
     <string name="tryb_nauki">Tryb nauki</string>
+    <string name="edit">Edytuj</string>
+    <string name="question_marked">Oznaczono jako nauczone</string>
+    <string name="data">Dane</string>
+    <string name="reset_questions">Resetuj postęp</string>
+    <string name="no">Nie</string>
+    <string name="reset">Resetuj</string>
+    <string name="confirm_reseting_learned_questions">Czy chcesz zresetować cały postęp w nauce?</string>
+    <string name="reset_progress">Zresetuj pytania oznaczone jako nauczone</string>
 </resources>

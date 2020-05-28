@@ -47,6 +47,7 @@ class EditFragment : Fragment() {
         var categoryAdapter: ArrayAdapter<String>
         categoryInput = root.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextViewCategory)
         val buttonAdd = root.findViewById<Button>(R.id.button_add)
+        buttonAdd.text = getString(R.string.edit)
         val currentRecord = singleRecordViewModel.singleRecord.value!!
         populateViewsWithCurrentRecord(currentRecord)
 
