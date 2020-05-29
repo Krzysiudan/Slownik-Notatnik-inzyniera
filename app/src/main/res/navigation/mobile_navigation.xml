@@ -131,5 +131,10 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.falatycze.slowniknotatnikinzyniera.ui.info.InfoFragment"
+        android:label="@string/info"
+        tools:layout="@layout/fragment_info"/>
 
 </navigation>

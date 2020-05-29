@@ -63,4 +63,7 @@
     <string name="reset">Reset</string>
     <string name="confirm_reseting_learned_questions">Do you want reset all you questions marked as learned</string>
     <string name="reset_progress">Reset all learning progress</string>
+    <string name="app_icon">App icon</string>
+    <string name="app_description">This application was created for paper purpose at Warsaw University of Technology by Krzysztof Daniluk. App is created to help students remember basic definitions about engineering. Layout was special designed to help memorize knowledge. The best way to remember is not only to read answer to a question but in first try to answer to it by yourself in your mind.</string>
+
 </resources>
